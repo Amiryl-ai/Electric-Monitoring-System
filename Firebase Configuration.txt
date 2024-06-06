@@ -1,0 +1,9 @@
+// Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyCsUugw1xB649Dju4KxW8rFNuT8vXwWyVk",
+  authDomain: "electricmonitor-fb.firebaseapp.com",
+  projectId: "electricmonitor-fb",
+  storageBucket: "electricmonitor-fb.appspot.com",
+  messagingSenderId: "912223219561",
+  appId: "1:912223219561:web:6ded95ba6bbfe5414e57f8D"
+};
