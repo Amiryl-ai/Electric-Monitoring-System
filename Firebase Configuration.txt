@@ -1,3 +1,5 @@
+Electric Monitoring Database
+
 // Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyCsUugw1xB649Dju4KxW8rFNuT8vXwWyVk",
@@ -7,3 +9,17 @@ const firebaseConfig = {
   messagingSenderId: "912223219561",
   appId: "1:912223219561:web:6ded95ba6bbfe5414e57f8D"
 };
+
+User Profile Database
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyDog3mejRM-rNYf-odGWyS_vLYIOJvCN0c",
+    authDomain: "userdata-d6a62.firebaseapp.com",
+    projectId: "userdata-d6a62",
+    storageBucket: "userdata-d6a62.appspot.com",
+    messagingSenderId: "560979460061",
+    appId: "1:560979460061:web:f78e9f8ea21a09cab84034"
+  };
+
+
