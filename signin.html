@@ -5,11 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sign In</title>
   <link rel="stylesheet" href="styles.css">
+   <!-- Include Firebase SDK -->
+   <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+   <!-- Include your JavaScript file -->
+  <script src="zombie.js"></script>
 </head>
 <body>
   <div class="container">
     <h2 class="h2">Sign In</h2><br>
-    <form id="signInForm">
+    <form id="signInForm" onsubmit="login(); return false;">
       <div class="form-group">
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required>
@@ -24,9 +30,5 @@
     <p id="signInError" class="error"></p>
     <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
   </div>
-
-  <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-auth.js"></script>
-  <script src="signin.js"></script>
 </body>
 </html>

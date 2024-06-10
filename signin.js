@@ -1,34 +1,39 @@
-// Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyCsUugw1xB649Dju4KxW8rFNuT8vXwWyVk",
-  authDomain: "electricmonitor-fb.firebaseapp.com",
-  projectId: "electricmonitor-fb",
-  storageBucket: "electricmonitor-fb.appspot.com",
-  messagingSenderId: "912223219561",
-  appId: "1:912223219561:web:6ded95ba6bbfe5414e57f8D"
-};
-
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+// Import Firebase modules from CDN
+import { signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-auth-compat.js';
+import { auth, database2 } from '../Firebase/app.js'; // Import auth and database2 from your Firebase configuration file
 
 document.getElementById('signInForm').addEventListener('submit', function(event) {
   event.preventDefault();
 
-  // Collect form data
   const email = document.getElementById('email').value;
   const password = document.getElementById('password').value;
 
-  // Firebase sign in
-  firebase.auth().signInWithEmailAndPassword(email, password)
+  signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      // Signed in successfully
       const user = userCredential.user;
 
-      // Redirect to dashboard or another page
-      window.location.href = 'index.html';
+      // Check if the user data is in database2
+      database2.ref('users/' + user.uid).once('value')
+        .then((snapshot) => {
+          const userData = snapshot.val();
+          if (userData) {
+            console.log('User data found in database2:', userData);
+            alert('Welcome back!');
+            window.location.href = './Index/index.html'; // Redirect after successful sign-in
+          } else {
+            console.log('User data not found in database2.');
+            alert('User data not found.');
+            // Handle redirection or display appropriate message for user not found in database2
+          }
+        })
+        .catch((error) => {
+          console.error('Error checking user data in database2:', error);
+          alert('Error checking user data.');
+        });
     })
     .catch((error) => {
       const errorMessage = error.message;
+      alert('Sign in failed: ' + errorMessage);
       document.getElementById('signInError').textContent = errorMessage;
     });
 });

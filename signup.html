@@ -5,34 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sign Up</title>
   <link rel="stylesheet" href="styles.css">
-  <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-database.js"></script>
-  <script>
-    // Your Firebase configuration
-    const firebaseConfig = {
-      apiKey: "AIzaSyCsUugw1xB649Dju4KxW8rFNuT8vXwWyVk",
-      authDomain: "electricmonitor-fb.firebaseapp.com",
-      projectId: "electricmonitor-fb",
-      storageBucket: "electricmonitor-fb.appspot.com",
-      messagingSenderId: "912223219561",
-      appId: "1:912223219561:web:6ded95ba6bbfe5414e57f8"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-  </script>
+  <!-- Include Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+  <!-- Include your JavaScript file -->
+  <script src="zombie.js"></script>
 </head>
 <body>
   <div class="container">
     <h2 class="h2">Sign Up</h2><br>
-    <form id="signUpForm">
+    <!-- Add onsubmit attribute to call signUpForm function -->
+    <form id="signUpForm" onsubmit="signUpForm(); return false;">
       <div class="form-group">
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required>
       </div>
       <div class="form-group">
         <label for="name">Full Name:</label>
-        <input type="text" id="name" name="name" required>
+        <input type="text" id="full_name" name="name" required>
       </div>
       <div class="form-group">
         <label for="email">Email:</label>
@@ -48,6 +39,5 @@
     <p id="signUpError" class="error"></p>
     <p>Already have an account? <a href="signin.html">Sign In</a></p>
   </div>
-  <script src="signup.js"></script>
 </body>
 </html>
